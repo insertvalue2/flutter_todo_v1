@@ -10,3 +10,8 @@ const epTodoById = '$pathTodo/{id}';
 const epTodoCreate = '$pathTodo/create';
 const epTodoUpdate = '$pathTodo/update/{id}';
 const epTodoDelete = '$pathTodo/delete/{id}';
+
+String buildPathParam(String basePath, int id) {
+  // {id} 토큰을 실제 id 값으로 치환합니다.
+  return basePath.replaceAll('{id}', id.toString());
+}
