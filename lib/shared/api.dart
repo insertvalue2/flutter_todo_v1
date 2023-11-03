@@ -11,7 +11,14 @@ const epTodoCreate = '$pathTodo/create';
 const epTodoUpdate = '$pathTodo/update/{id}';
 const epTodoDelete = '$pathTodo/delete/{id}';
 
-String buildPathParam(String basePath, int id) {
+String buildPathParam(String endPoint, int id) {
   // {id} 토큰을 실제 id 값으로 치환합니다.
-  return basePath.replaceAll('{id}', id.toString());
+  return endPoint.replaceAll('{id}', id.toString());
+}
+
+String buildPathParam2(String endPoint, Map<String, dynamic> pathParams) {
+  pathParams.forEach((key, value) {
+    endPoint = endPoint.replaceAll('{$key}', value.toString());
+  });
+  return endPoint;
 }

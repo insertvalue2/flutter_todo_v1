@@ -15,11 +15,11 @@ class UserDto {
   // 키-값 쌍을 저장하는 데이터 구조 이다.
 
   // dart lib -> dart:convert 라이브러에서 jsonEncode 함수를 사용하면 문자열로 변경해준다.
-  // Map<String, dynamic> toJson() {
-  //   return {
-  //     'username': username ?? '',
-  //     'email': email,
-  //     'password': password,
-  //   };
-  // }
+  Map<String, dynamic> toJson() {
+    return {
+      'username': username ?? '',
+      'email': email,
+      'password': password,
+    };
+  }
 }

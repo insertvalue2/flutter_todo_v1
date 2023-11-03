@@ -11,7 +11,7 @@ void main() {
     userRepository = UserRepositoryImpl();
   });
 
-  group('UserRepository TES', () {
+  group('UserRepository TEST', () {
     test('로그인 테스트', () async {
       // given
       UserDto dto = UserDto(

@@ -6,6 +6,6 @@ abstract class TodoRepository {
   Future<List<TodoEntity>> todoList();
   Future<TodoEntity> findByIdTodo(int todoId);
   Future<int> createTodo(TodoDto todoDto);
-  Future<int> updateTodoById(TodoDto todoDto);
+  Future<int> updateTodoById(TodoDto todoDto, int id);
   Future<int> deleteById(int todoId);
 }

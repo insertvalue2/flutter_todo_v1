@@ -25,12 +25,10 @@ void main() {
   group('TodoRepository TES', () {
     test('Todo 등록 테스트', () async {
       // given
-
-      TodoDto mockTodo = TodoDto(title: 'todo test1', completed: false);
+      TodoDto mockTodo = TodoDto(title: 'test2', completed: false);
 
       // when
       int result = await todoRepository.createTodo(mockTodo);
-      //int result = await todoRepository.todoTest();
       print("result : ${result}");
       // then
       // 데이터 타입 확인
@@ -41,14 +39,30 @@ void main() {
     test("todo 전체 조회 테스트 ", () async {
       // when
       List<TodoEntity> todoList = await todoRepository.todoList();
-
       // then
       expect(todoList, isA<List<TodoEntity>>());
       expect(todoList.every((todo) => todo.title.isNotEmpty), isTrue);
     });
+
+    test("todo by id 삭제", () async {
+      // when
+      int result = await todoRepository.deleteById(1);
+
+      // then
+      expect(result, isA<int>());
+      expect(result, 1);
+      expect(result, isNotNull); // 결과가 null이 아닌지 확인
+    });
+
+    // 수정
+    test("todo update ", () async {
+      TodoDto updateTodo = TodoDto(title: 'xxxxxx 7번 수정함', completed: true);
+      // when - 내용, todoId
+      int result = await todoRepository.updateTodoById(updateTodo, 7);
+      // then
+      expect(result, isA<int>());
+      expect(result, 1);
+      expect(result, isNotNull); // 결과가 null이 아닌지 확인
+    });
   });
-
-  // 수정
-
-  // 삭제
 }
